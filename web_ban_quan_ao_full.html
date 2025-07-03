@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Thời Trang Quần Áo & Phụ Kiện</title>
+    <link rel="stylesheet" href="style.css">
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+header {
+    background-color: #f8f8f8;
+    padding: 10px 20px;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+}
+
+.header-left, .header-right {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.header-left {
+    float: left;
+}
+
+.header-right {
+    float: right;
+}
+
+.header-right input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 5px;
+}
+
+.header-right button {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.header-right button:hover {
+    background-color: #0056b3;
+}
+
+.header-right .btn {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 12px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-left: 5px;
+    display: inline-block;
+}
+
+.header-right .btn:hover {
+    background-color: #0056b3;
+}
+
+#cart-count {
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.8em;
+    vertical-align: super;
+}
+
+nav {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    display: inline-block;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ffd700;
+}
+
+
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.page-section {
+    display: none; 
+}
+
+.page-section.active {
+    display: block; 
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 2em;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+
+.product-grid .product-item {
+    display: inline-block;
+    width: 30%; 
+    margin: 1.5%; 
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: center;
+    vertical-align: top;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.product-grid .product-item:hover {
+    transform: translateY(-5px);
+}
+
+.product-grid .product-item img {
+    max-width: 100%;
+    height: 200px; 
+    object-fit: cover; 
+    margin-bottom: 10px;
+}
+
+.product-grid .product-item h3 {
+    margin: 10px 0;
+    font-size: 1.2em;
+}
+
+.product-grid .product-item p {
+    color: #e44d26;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.product-grid .product-item .btn {
+    background-color: #28a745;
+    color: white;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.product-grid .product-item .btn:hover {
+    background-color: #218838;
+}
+
+
+#product-detail-page .product-image {
+    float: left;
+    width: 45%;
+    margin-right: 5%;
+}
+
+#product-detail-page .product-image img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #eee;
+}
+
+#product-detail-page .product-info {
+    float: left;
+    width: 50%;
+}
+
+#product-detail-page .product-info h2 {
+    font-size: 2.2em;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+#product-detail-page .product-info .price {
+    font-size: 1.8em;
+    color: #e44d26;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+#product-detail-page .product-info p {
+    margin-bottom: 10px;
+}
+
+.product-options div {
+    margin-bottom: 15px;
+}
+
+.product-options label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.product-options select, .product-options input[type="number"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    min-width: 100px;
+}
+
+.add-to-cart-btn {
+    background-color: #ffc107;
+    color: #333;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #e0a800;
+}
+
+#related-products {
+    margin-top: 40px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+#related-products h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+.cart-table th, .cart-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.cart-table th {
+    background-color: #f2f2f2;
+}
+
+.cart-table img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.cart-table input[type="number"] {
+    width: 60px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.update-cart-btn, .remove-from-cart-btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.update-cart-btn {
+    background-color: #007bff;
+    color: white;
+}
+
+.update-cart-btn:hover {
+    background-color: #0056b3;
+}
+
+.remove-from-cart-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.remove-from-cart-btn:hover {
+    background-color: #c82333;
+}
+
+.cart-summary p {
+    margin-bottom: 10px;
+}
+
+.cart-summary .total-amount {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #e44d26;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.checkout-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    width: 100%;
+}
+
+.checkout-btn:hover {
+    background-color: #218838;
+}
+
+
+.form-container {
+    width: 50%;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-container input[type="text"],
+.form-container input[type="password"],
+.form-container input[type="email"],
+.form-container input[type="tel"],
+.form-container input[type="date"],
+.form-container textarea {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-container button {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
+.form-container button:hover {
+    background-color: #555;
+}
+
+.form-container p {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.form-container p a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.form-container p a:hover {
+    text-decoration: underline;
+}
+
+
+.place-order-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.place-order-btn:hover {
+    background-color: #0056b3;
+}
+
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.footer-section {
+    display: inline-block;
+    width: 30%;
+    vertical-align: top;
+    margin: 0 1.5%;
+}
+
+footer h3 {
+    color: #ffd700;
+    margin-bottom: 10px;
+}
+
+footer ul {
+    list-style: none;
+}
+
+footer ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+</style>
+</head>
+<body>
+    <header class="clearfix">
+        <div class="header-left">
+            <a href="#" id="logo-link"><img src="images/logo.png" alt="Logo Website" style="height: 50px; vertical-align: middle;"></a>
+        </div>
+        <div class="header-right">
+            <input type="text" id="search-input" placeholder="Tìm kiếm sản phẩm...">
+            <button id="search-button">Tìm kiếm</button>
+            <a href="#" id="login-link" class="btn">Đăng nhập</a>
+            <a href="#" id="register-link" class="btn">Đăng ký</a>
+            <a href="#" id="cart-link" class="btn">Giỏ hàng (<span id="cart-count">0</span>)</a>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#" class="nav-link" data-target="home-page">Trang chủ</a></li>
+            <li><a href="#" class="nav-link" data-target="products-page">Sản phẩm</a></li>
+            <li><a href="#" class="nav-link" data-target="accessories-page">Phụ kiện</a></li>
+            <li><a href="#" class="nav-link" data-target="shoes-page">Giày</a></li>
+            <li><a href="#" class="nav-link" data-target="news-page">Bài viết</a></li>
+            <li><a href="#" class="nav-link" data-target="contact-page">Liên hệ</a></li>
+        </ul>
+    </nav>
+
+    <main>
+       
+        <section id="home-page" class="page-section active">
+            <h2 class="section-title">Sản phẩm mới nhất</h2>
+            <div id="new-products-list" class="product-grid clearfix">
+               
+            </div>
+        </section>
+
+        
+        <section id="products-page" class="page-section hidden">
+            <h2 class="section-title">Tất cả sản phẩm</h2>
+            <div id="all-products-list" class="product-grid clearfix">
+               
+            </div>
+        </section>
+
+        
+        <section id="accessories-page" class="page-section hidden">
+            <h2 class="section-title">Phụ kiện</h2>
+            <div id="accessories-list" class="product-grid clearfix">
+                
+            </div>
+        </section>
+
+        
+        <section id="shoes-page" class="page-section hidden">
+            <h2 class="section-title">Giày</h2>
+            <div id="shoes-list" class="product-grid clearfix">
+                
+            </div>
+        </section>
+
+        
+        <section id="product-detail-page" class="page-section hidden">
+        
+        </section>
+
+        
+        <section id="cart-page" class="page-section hidden">
+            <h2 class="section-title">Giỏ hàng của bạn</h2>
+            <div id="cart-items-container">
+                <table class="cart-table" style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+                    <thead>
+                        <tr>
+                            <th>Sản phẩm</th>
+                            <th>Giá</th>
+                            <th>Số lượng</th>
+                            <th>Tổng cộng</th>
+                            <th>Hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cart-table-body">
+                        
+                    </tbody>
+                </table>
+            </div>
+            <div class="cart-summary clearfix">
+                <div class="summary-details" style="float: right; width: 40%; border: 1px solid #ddd; padding: 15px; background-color: #f9f9f9;">
+                    <h3>Hóa đơn thanh toán</h3>
+                    <p>Giá sản phẩm: <span id="subtotal">\$0</span> VND</p>
+                    <p>Phí vận chuyển: <span id="shipping-fee">\$30.000</span> VND</p>
+                    <p class="total-amount">Tổng tiền đơn hàng: <span id="total-amount">\$30.000</span> VND</p>
+                    <button id="checkout-button" class="checkout-btn">Tiến hành thanh toán</button>
+                </div>
+            </div>
+        </section>
+
+        
+        <section id="checkout-page" class="page-section hidden">
+            <h2 class="section-title">Thông tin thanh toán</h2>
+            <div class="form-container" style="width: 70%;">
+                <form id="checkout-form">
+                    <h3>Thông tin khách hàng</h3>
+                    <label for="checkout_fullname">Họ và tên:</label>
+                    <input type="text" id="checkout_fullname" name="fullname" required>
+
+                    <label for="checkout_email">Email:</label>
+                    <input type="email" id="checkout_email" name="email" required>
+
+                    <label for="checkout_phone">Số điện thoại:</label>
+                    <input type="tel" id="checkout_phone" name="phone" required>
+
+                    <label for="checkout_address">Địa chỉ giao hàng:</label>
+                    <input type="text" id="checkout_address" name="address" required>
+
+                    <label for="checkout_notes">Ghi chú (tùy chọn):</label>
+                    <textarea id="checkout_notes" name="notes" rows="4"></textarea>
+
+                    <h3>Chi tiết đơn hàng</h3>
+                    <table class="cart-table" style="width: 100%; margin-bottom: 20px;">
+                        <thead>
+                            <tr>
+                                <th>Sản phẩm</th>
+                                <th>Số lượng</th>
+                                <th>Giá</th>
+                                <th>Tổng</th>
+                            </tr>
+                        </thead>
+                        <tbody id="checkout-cart-summary-body">
+                            
+                        </tbody>
+                    </table>
+
+                    <p>Giá sản phẩm: <span id="checkout-subtotal">\$0</span> VND</p>
+                    <p>Phí vận chuyển: <span id="checkout-shipping-fee">\$30.000</span> VND</p>
+                    <p class="total-amount">Tổng tiền đơn hàng: <span id="checkout-total-amount">\$30.000</span> VND</p>
+
+                    <h3>Hình thức thanh toán</h3>
+                    <p>Thanh toán khi nhận hàng (COD)</p>
+                    <button type="submit" class="place-order-btn">Xác nhận đặt hàng</button>
+                </form>
+            </div>
+        </section>
+
+      
+        <section id="order-success-page" class="page-section hidden" style="text-align: center; padding: 50px;">
+            <h2>Đặt hàng thành công!</h2>
+            <p>Cảm ơn bạn đã đặt hàng tại cửa hàng của chúng tôi.</p>
+            <p>Đơn hàng của bạn đã được xác nhận và sẽ được xử lý trong thời gian sớm nhất.</p>
+            <p>Mã đơn hàng của bạn: <strong id="order-id-display">#ORDXXXXXX</strong></p>
+            <p>Chúng tôi sẽ liên hệ với bạn để xác nhận thông tin giao hàng.</p>
+            <a href="#" id="continue-shopping-link" class="btn" style="margin-top: 20px;">Tiếp tục mua sắm</a>
+        </section>
+
+        
+        <section id="login-page" class="page-section hidden">
+            <div class="form-container">
+                <h2>Đăng nhập</h2>
+                <form id="login-form">
+                    <label for="username_login">Tên đăng nhập:</label>
+                    <input type="text" id="username_login" name="username" required>
+
+                    <label for="password_login">Mật khẩu:</label>
+                    <input type="password" id="password_login" name="password" required>
+
+                    <button type="submit">Đăng nhập</button>
+                    <p>Chưa có tài khoản? <a href="#" id="switch-to-register">Đăng ký ngay</a></p>
+                </form>
+            </div>
+        </section>
+
+        
+        <section id="register-page" class="page-section hidden">
+            <div class="form-container">
+                <h2>Đăng ký</h2>
+                <form id="register-form-content">
+                    <label for="fullname_reg">Họ và tên:</label>
+                    <input type="text" id="fullname_reg" name="fullname" required>
+
+                    <label for="email_reg">Email:</label>
+                    <input type="email" id="email_reg" name="email" required>
+
+                    <label for="phone_reg">Số điện thoại:</label>
+                    <input type="tel" id="phone_reg" name="phone">
+
+                    <label for="address_reg">Địa chỉ:</label>
+                    <input type="text" id="address_reg" name="address">
+
+                    <label for="dob_reg">Ngày sinh:</label>
+                    <input type="date" id="dob_reg" name="dob">
+
+                    <label for="username_reg">Tên đăng nhập:</label>
+                    <input type="text" id="username_reg" name="username" required>
+
+                    <label for="password_reg">Mật khẩu:</label>
+                    <input type="password" id="password_reg" name="password" required>
+
+                    <label for="confirm_password_reg">Xác nhận mật khẩu:</label>
+                    <input type="password" id="confirm_password_reg" name="confirm_password" required>
+
+                    <button type="submit">Đăng ký</button>
+                    <p>Đã có tài khoản? <a href="#" id="switch-to-login">Đăng nhập</a></p>
+                </form>
+            </div>
+        </section>
+
+        
+        <section id="news-page" class="page-section hidden">
+            <h2 class="section-title">Bài viết mới nhất</h2>
+            <p>Nội dung các bài viết sẽ được cập nhật tại đây.</p>
+        </section>
+
+        <section id="contact-page" class="page-section hidden">
+            <h2 class="section-title">Liên hệ chúng tôi</h2>
+            <p>Email: chuottrang.vn@gmail.com</p>
+            <p>Điện thoại: 036 699 9989</p>
+            <p>Địa chỉ: 46 Nguyễn Văn Tráng Phường Bến Thành Quận 1, Ho Chi Minh City, Vietnam</p>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-section">
+            <h3>Về chúng tôi</h3>
+            <p>Thông tin về thương hiệu và các tin tức mới nhất.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Liên hệ</h3>
+            <ul>
+                <li>Email: chuottrang.vn@gmail.com</li>
+                <li>Điện thoại: 036 699 9989</li>
+                <li>Địa chỉ: 46 Nguyễn Văn Tráng Phường Bến Thành Quận 1, Ho Chi Minh City, Vietnam</li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Theo dõi chúng tôi</h3>
+            <img src="images/facebook.png" alt="Facebook" style="width: 30px; height: 30px;">
+            <img src="images/instagram.png" alt="Instagram" style="width: 30px; height: 30px;">
+        </div>
+    </footer>
+
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const pages = document.querySelectorAll('.page-section');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const logoLink = document.getElementById('logo-link');
+    const cartLink = document.getElementById('cart-link');
+    const cartCountSpan = document.getElementById('cart-count');
+    const loginLink = document.getElementById('login-link');
+    const registerLink = document.getElementById('register-link');
+    const switchToRegisterLink = document.getElementById('switch-to-register');
+    const switchToLoginLink = document.getElementById('switch-to-login');
+    const checkoutButton = document.getElementById('checkout-button');
+    const checkoutForm = document.getElementById('checkout-form');
+    const continueShoppingLink = document.getElementById('continue-shopping-link');
+    const searchButton = document.getElementById('search-button');
+    const searchInput = document.getElementById('search-input');
+
+    let products = [
+        { id: 'P001', name: 'Áo Thun Nam Basic', price: 350000, image: 'images/ao_thun.jpg', category: 'clothes', description: 'Áo thun cotton cao cấp, thoáng mát, phù hợp mọi hoạt động.', sizes: ['S', 'M', 'L', 'XL'] },
+        { id: 'P002', name: 'Quần Jean Slim Fit', price: 350000, image: 'images/quan_jean.jpg', category: 'clothes', description: 'Quần jean co giãn, kiểu dáng slim fit hiện đại, dễ phối đồ.', sizes: ['28', '29', '30', '31', '32'] },
+        { id: 'P003', name: 'Đồng Hồ Thể Thao', price: 450000, image: 'images/phu_kien_dong_ho.jpg', category: 'accessories', description: 'Đồng hồ chống nước, nhiều tính năng, phong cách thể thao năng động.' },
+        { id: 'P004', name: 'Giày Sneaker Trắng', price: 600000, image: 'images/giay_sneaker.jpg', category: 'shoes', description: 'Giày sneaker trắng basic, đế êm ái, dễ dàng kết hợp với mọi trang phục.', shoeSizes: ['38', '39', '40', '41', '42'] },
+        { id: 'P005', name: 'Mũ Lưỡi Trai Đen', price: 80000, image: 'images/mu_luoi_trai.jpg', category: 'accessories', description: 'Mũ lưỡi trai màu đen cá tính, chất liệu bền đẹp.' },
+        { id: 'P006', name: 'Áo Sơ Mi Caro', price: 280000, image: 'images/ao_somi_caro.jpg', category: 'clothes', description: 'Áo sơ mi caro phong cách trẻ trung, chất vải mềm mại.', sizes: ['M', 'L', 'XL'] },
+        { id: 'P007', name: 'Giày Tây Da Lộn', price: 750000, image: 'images/giay_tay.jpg', category: 'shoes', description: 'Giày tây da lộn cao cấp, thiết kế sang trọng, lịch lãm.', shoeSizes: ['39', '40', '41', '42', '43'] },
+        { id: 'P008', name: 'Kính Mát Thời Trang', price: 200000, image: 'images/kinh_mat.jpg', category: 'accessories', description: 'Kính mát chống tia UV, kiểu dáng thời thượng.' },
+    ];
+
+    let cart = JSON.parse(localStorage.getItem('cart')) || []; 
+    updateCartCount();
+
+    
+    function showPage(pageId) {
+        pages.forEach(page => {
+            page.classList.remove('active');
+            page.classList.add('hidden');
+        });
+        document.getElementById(pageId).classList.add('active');
+        document.getElementById(pageId).classList.remove('hidden');
+        window.scrollTo(0, 0); 
+    }
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetPage = e.target.dataset.target;
+            showPage(targetPage);
+            if (targetPage === 'home-page') {
+                renderProducts(products, 'new-products-list');
+            } else if (targetPage === 'products-page') {
+                renderProducts(products, 'all-products-list');
+            } else if (targetPage === 'accessories-page') {
+                renderProducts(products.filter(p => p.category === 'accessories'), 'accessories-list');
+            } else if (targetPage === 'shoes-page') {
+                renderProducts(products.filter(p => p.category === 'shoes'), 'shoes-list');
+            }
+        });
+    });
+
+    logoLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        showPage('home-page');
+        renderProducts(products, 'new-products-list');
+    });
+
+    cartLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        showPage('cart-page');
+        renderCart();
+    });
+
+    loginLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        showPage('login-page');
+    });
+
+    registerLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        showPage('register-page');
+    });
+
+    switchToRegisterLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        showPage('register-page');
+    });
+
+    switchToLoginLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        showPage('login-page');
+    });
+
+    continueShoppingLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        showPage('home-page');
+        renderProducts(products, 'new-products-list');
+    });
+
+   
+    function renderProducts(productsToRender, containerId) {
+        const container = document.getElementById(containerId);
+        container.innerHTML = ''; 
+
+        productsToRender.forEach(product => {
+            const productItem = document.createElement('div');
+            productItem.classList.add('product-item');
+            productItem.innerHTML = `
+                <img src="${product.image}" alt="${product.name}">
+                <h3>${product.name}</h3>
+                <p>Giá: \$${product.price.toLocaleString('vi-VN')}\$ VND</p>
+                <button class="btn view-detail-btn" data-product-id="${product.id}">Xem chi tiết</button>
+            `;
+            container.appendChild(productItem);
+        });
+
+        document.querySelectorAll('.view-detail-btn').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const productId = e.target.dataset.productId;
+                showProductDetail(productId);
+            });
+        });
+    }
+
+    
+    function showProductDetail(productId) {
+        const product = products.find(p => p.id === productId);
+        if (!product) {
+            alert('Sản phẩm không tìm thấy!');
+            return;
+        }
+
+        const detailPage = document.getElementById('product-detail-page');
+        detailPage.innerHTML = `
+            <div class="clearfix">
+                <div class="product-image">
+                    <img src="${product.image}" alt="${product.name}">
+                </div>
+                <div class="product-info">
+                    <h2>${product.name}</h2>
+                    <p class="price">Giá: \$${product.price.toLocaleString('vi-VN')}\$ VND</p>
+                    <p>Mã sản phẩm: ${product.id}</p>
+                    <p>Mô tả: ${product.description}</p>
+
+                    <div class="product-options">
+                        ${product.category === 'clothes' && product.sizes ? `
+                            <div class="size-selection">
+                                <label for="size-select">Chọn Size:</label>
+                                <select id="size-select">
+                                    ${product.sizes.map(size => `<option value="${size}">${size}</option>`).join('')}
+                                </select>
+                            </div>
+                        ` : ''}
+                        ${product.category === 'shoes' && product.shoeSizes ? `
+                            <div class="shoe-size-selection">
+                                <label for="shoe-size-select">Chọn Size Giày:</label>
+                                <select id="shoe-size-select">
+                                    ${product.shoeSizes.map(size => `<option value="${size}">${size}</option>`).join('')}
+                                </select>
+                            </div>
+                        ` : ''}
+                        ${product.category === 'accessories' ? `
+                            <div class="quantity-selection">
+                                <label for="quantity-input">Số lượng:</label>
+                                <input type="number" id="quantity-input" value="1" min="1">
+                            </div>
+                        ` : `
+                            <div class="quantity-selection">
+                                <label for="quantity-input">Số lượng:</label>
+                                <input type="number" id="quantity-input" value="1" min="1">
+                            </div>
+                        `}
+                    </div>
+                    <button class="add-to-cart-btn" data-product-id="${product.id}">Thêm vào giỏ hàng</button>
+                </div>
+            </div>
+            <section id="related-products" class="clearfix">
+                <h2 class="section-title">Sản phẩm cùng loại</h2>
+                <div class="product-grid clearfix">
+                    ${renderRelatedProducts(product.category, product.id)}
+                </div>
+            </section>
+        `;
+        showPage('product-detail-page');
+
+        
+        document.querySelector('.add-to-cart-btn').addEventListener('click', (e) => {
+            const productId = e.target.dataset.productId;
+            const quantity = parseInt(document.getElementById('quantity-input')?.value || 1);
+            let selectedOption = '';
+            if (product.category === 'clothes' && document.getElementById('size-select')) {
+                selectedOption = document.getElementById('size-select').value;
+            } else if (product.category === 'shoes' && document.getElementById('shoe-size-select')) {
+                selectedOption = document.getElementById('shoe-size-select').value;
+            }
+            addToCart(productId, quantity, selectedOption);
+        });
+    }
+
+    function renderRelatedProducts(category, currentProductId) {
+        const related = products.filter(p => p.category === category && p.id !== currentProductId).slice(0, 3); // Lấy 3 sản phẩm liên quan
+        if (related.length === 0) return '<p style="text-align: center;">Không có sản phẩm liên quan.</p>';
+
+        return related.map(product => `
+            <div class="product-item">
+                <img src="${product.image}" alt="${product.name}">
+                <h3>${product.name}</h3>
+                <p>Giá: \$${product.price.toLocaleString('vi-VN')}\$ VND</p>
+                <button class="btn view-detail-btn" data-product-id="${product.id}">Xem chi tiết</button>
+            </div>
+        `).join('');
+    }
+
+    
+    function updateCartCount() {
+        cartCountSpan.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+        localStorage.setItem('cart', JSON.stringify(cart)); 
+    }
+
+    function addToCart(productId, quantity, option = '') {
+        const product = products.find(p => p.id === productId);
+        if (!product) return;
+
+        const existingItemIndex = cart.findIndex(item => item.id === productId && item.option === option);
+
+        if (existingItemIndex > -1) {
+            cart[existingItemIndex].quantity += quantity;
+        } else {
+            cart.push({
+                id: product.id,
+                name: product.name,
+                price: product.price,
+                image: product.image,
+                quantity: quantity,
+                option: option 
+            });
+        }
+        updateCartCount();
+        alert(`${quantity} sản phẩm "${product.name}" đã được thêm vào giỏ hàng!`);
+    }
+
+    function renderCart() {
+        const cartTableBody = document.getElementById('cart-table-body');
+        cartTableBody.innerHTML = '';
+        let subtotal = 0;
+        const shippingFee = 30000; 
+
+        if (cart.length === 0) {
+            cartTableBody.innerHTML = '<tr><td colspan="5" style="text-align: center;">Giỏ hàng của bạn trống.</td></tr>';
+            document.getElementById('subtotal').textContent = '\$0';
+            document.getElementById('total-amount').textContent = `\$${shippingFee.toLocaleString('vi-VN')}`;
+            return;
+        }
+
+        cart.forEach(item => {
+            const row = document.createElement('tr');
+            const itemTotal = item.price * item.quantity;
+            subtotal += itemTotal;
+
+            row.innerHTML = `
+                <td><img src="${item.image}" alt="${item.name}">${item.name} ${item.option ? `(${item.option})` : ''}</td>
+                <td>\$${item.price.toLocaleString('vi-VN')}\$ VND</td>
+                <td>
+                    <input type="number" value="${item.quantity}" min="1" class="cart-quantity-input" data-item-id="${item.id}" data-item-option="${item.option}">
+                </td>
+                <td>\$${itemTotal.toLocaleString('vi-VN')}\$ VND</td>
+                <td>
+                    <button class="remove-from-cart-btn" data-item-id="${item.id}" data-item-option="${item.option}">Xóa</button>
+                </td>
+            `;
+            cartTableBody.appendChild(row);
+        });
+
+        document.getElementById('subtotal').textContent = `\$${subtotal.toLocaleString('vi-VN')}`;
+        document.getElementById('shipping-fee').textContent = `\$${shippingFee.toLocaleString('vi-VN')}`;
+        document.getElementById('total-amount').textContent = `\$${(subtotal + shippingFee).toLocaleString('vi-VN')}`;
+
+        
+        document.querySelectorAll('.cart-quantity-input').forEach(input => {
+            input.addEventListener('change', (e) => {
+                const itemId = e.target.dataset.itemId;
+                const itemOption = e.target.dataset.itemOption;
+                const newQuantity = parseInt(e.target.value);
+                updateCartItemQuantity(itemId, itemOption, newQuantity);
+            });
+        });
+
+        document.querySelectorAll('.remove-from-cart-btn').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const itemId = e.target.dataset.itemId;
+                const itemOption = e.target.dataset.itemOption;
+                removeFromCart(itemId, itemOption);
+            });
+        });
+    }
+
+    function updateCartItemQuantity(itemId, itemOption, newQuantity) {
+        const itemIndex = cart.findIndex(item => item.id === itemId && item.option === itemOption);
+        if (itemIndex > -1 && newQuantity > 0) {
+            cart[itemIndex].quantity = newQuantity;
+            updateCartCount();
+            renderCart(); 
+        } else if (newQuantity <= 0) {
+            removeFromCart(itemId, itemOption);
+        }
+    }
+
+    function removeFromCart(itemId, itemOption) {
+        cart = cart.filter(item => !(item.id === itemId && item.option === itemOption));
+        updateCartCount();
+        renderCart(); 
+    }
+
+    
+    checkoutButton.addEventListener('click', () => {
+        if (cart.length === 0) {
+            alert('Giỏ hàng của bạn trống, không thể thanh toán.');
+            return;
+        }
+        showPage('checkout-page');
+        renderCheckoutSummary();
+    });
+
+    function renderCheckoutSummary() {
+        const checkoutSummaryBody = document.getElementById('checkout-cart-summary-body');
+        checkoutSummaryBody.innerHTML = '';
+        let subtotal = 0;
+        const shippingFee = 30000;
+
+        cart.forEach(item => {
+            const row = document.createElement('tr');
+            const itemTotal = item.price * item.quantity;
+            subtotal += itemTotal;
+            row.innerHTML = `
+                <td>${item.name} ${item.option ? `(${item.option})` : ''}</td>
+                <td>${item.quantity}</td>
+                <td>\$${item.price.toLocaleString('vi-VN')}\$ VND</td>
+                <td>\$${itemTotal.toLocaleString('vi-VN')}\$ VND</td>
+            `;
+            checkoutSummaryBody.appendChild(row);
+        });
+
+        document.getElementById('checkout-subtotal').textContent = `\$${subtotal.toLocaleString('vi-VN')}`;
+        document.getElementById('checkout-shipping-fee').textContent = `\$${shippingFee.toLocaleString('vi-VN')}`;
+        document.getElementById('checkout-total-amount').textContent = `\$${(subtotal + shippingFee).toLocaleString('vi-VN')}`;
+    }
+
+    checkoutForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const fullname = document.getElementById('checkout_fullname').value;
+        const email = document.getElementById('checkout_email').value;
+        const phone = document.getElementById('checkout_phone').value;
+        const address = document.getElementById('checkout_address').value;
+        const notes = document.getElementById('checkout_notes').value;
+
+        if (!fullname || !email || !phone || !address) {
+            alert('Vui lòng điền đầy đủ thông tin bắt buộc.');
+            return;
+        }
+
+        
+        const orderId = 'ORD' + Math.floor(Math.random() * 1000000);
+        document.getElementById('order-id-display').textContent = `#${orderId}`;
+
+        
+        cart = [];
+        updateCartCount();
+        localStorage.removeItem('cart'); 
+
+        showPage('order-success-page');
+        checkoutForm.reset(); 
+    });
+
+    
+    searchButton.addEventListener('click', () => {
+        const searchTerm = searchInput.value.toLowerCase().trim();
+        if (searchTerm === '') {
+            alert('Vui lòng nhập từ khóa tìm kiếm.');
+            return;
+        }
+
+        const filteredProducts = products.filter(product =>
+            product.name.toLowerCase().includes(searchTerm) ||
+            product.description.toLowerCase().includes(searchTerm) ||
+            product.category.toLowerCase().includes(searchTerm)
+        );
+
+        if (filteredProducts.length > 0) {
+            showPage('products-page'); 
+            document.getElementById('products-page').querySelector('.section-title').textContent = `Kết quả tìm kiếm cho "${searchInput.value}"`;
+            renderProducts(filteredProducts, 'all-products-list');
+        } else {
+            showPage('products-page');
+            document.getElementById('products-page').querySelector('.section-title').textContent = `Không tìm thấy sản phẩm nào cho "${searchInput.value}"`;
+            document.getElementById('all-products-list').innerHTML = '<p style="text-align: center;">Không có sản phẩm nào phù hợp với từ khóa của bạn.</p>';
+        }
+    });
+
+    
+    renderProducts(products.slice(0, 6), 'new-products-list'); 
+    showPage('home-page');
+});
+
+</script>
+</body>
+</html>
